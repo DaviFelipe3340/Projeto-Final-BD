@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 public class SakilabdUI extends javax.swing.JFrame {
 
    private final CustomerDAO dao;
-
     public void view(){
         try {
             List<Customer> lista = dao.getCustomers();
