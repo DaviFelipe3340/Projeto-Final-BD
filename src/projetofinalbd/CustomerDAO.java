@@ -45,7 +45,7 @@ public void deleteCustomer(int id) throws SQLException {
 public void updateCustomer(Customer c, int id) throws SQLException{
 
     String sql = "update customer "
-            + "set store_id = ?, first_name = ?, last_name = ?, email = ?, address_id = ?, active = ?"
+            + "set store_id = ?, first_name = ?, last_name = ?, email = ?, address_id = ?, active = ? "
             + "where customer_id = "+id;
     PreparedStatement pst = con.prepareStatement(sql);
     
