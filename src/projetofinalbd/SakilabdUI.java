@@ -94,7 +94,15 @@ public class SakilabdUI extends javax.swing.JFrame {
             new String [] {
                 "Customer_id", "Store_id", "First_name", "Last_name", "E-mail", "Address_id", "Active", "Create_date", "Last_update"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
@@ -208,7 +216,8 @@ public class SakilabdUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione algum cliente para atualizar!");
         } else {
             
-            String customer_id = jTable1.getValueAt(i, 0)+"";
+            int customer_id = (int) jTable1.getValueAt(i, 0);
+            
             String store_id = jTable1.getValueAt(i, 1)+"";
             String first_name = jTable1.getValueAt(i, 2)+"";
             String last_name = jTable1.getValueAt(i, 3)+"";
@@ -216,8 +225,9 @@ public class SakilabdUI extends javax.swing.JFrame {
             String address_id = jTable1.getValueAt(i, 5)+"";
             String ativo = jTable1.getValueAt(i, 6)+"";
             
+            Customer c = new Customer (Integer.parseInt(store_id), first_name, last_name, email, Integer.parseInt(address_id), Integer.parseInt(ativo));
            try {
-               new UpdateCustomer(customer_id, store_id, first_name, last_name, email, address_id, ativo).setVisible(true);
+               new UpdateCustomer(c, customer_id).setVisible(true);
                setVisible(false);
            } catch (SQLException ex) {
                Logger.getLogger(SakilabdUI.class.getName()).log(Level.SEVERE, null, ex);
