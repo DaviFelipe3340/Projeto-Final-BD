@@ -1,5 +1,6 @@
 package projetofinalbd;
 
+import java.awt.event.KeyEvent;
 import projetofinalbd.Customer;
 import projetofinalbd.CustomerDAO;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class AddCustomer extends javax.swing.JFrame {
 
     private final CustomerDAO dao;
-    
+
     public AddCustomer() throws SQLException {
         this.dao = new CustomerDAO();
         initComponents();
@@ -44,28 +45,24 @@ public class AddCustomer extends javax.swing.JFrame {
         AdAddress_id = new javax.swing.JTextField();
         SubmitAddcustomer = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jSlider1 = new javax.swing.JSlider();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
 
         jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ADD Customer");
 
         jSeparator1.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Store_id: ");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("First_name:");
 
         AdFirst_name.addActionListener(new java.awt.event.ActionListener() {
@@ -74,24 +71,29 @@ public class AddCustomer extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Last_name:");
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        AdLast_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdLast_nameActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("E-mail:");
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Address_id:");
 
         AdAddress_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdAddress_idActionPerformed(evt);
+            }
+        });
+        AdAddress_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                AdAddress_idKeyReleased(evt);
             }
         });
 
@@ -110,147 +112,235 @@ public class AddCustomer extends javax.swing.JFrame {
             }
         });
 
+        jSlider1.setMajorTickSpacing(100);
+        jSlider1.setMaximum(605);
+        jSlider1.setMinorTickSpacing(50);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setToolTipText("");
+        jSlider1.setValue(1);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+
+        jCheckBox1.setText("Aceito os Termos e Condições...");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox2.setText("Desejo Receber Notificações sobre atualizações do Sakila");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setText("Permissão para Processamento de Dados Pessoais");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(66, 66, 66)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AdFirst_name, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(AdLast_name)
-                            .addComponent(AdEmail)
-                            .addComponent(AdAddress_id))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(248, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(AdEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(AdLast_name, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(AdFirst_name, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(SubmitAddcustomer)))
+                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AdAddress_id, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(139, 139, 139))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SubmitAddcustomer)
+                .addGap(135, 135, 135))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AdFirst_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdLast_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AdLast_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(AdAddress_id, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(AdEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AdAddress_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jCheckBox2)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox3)
+                .addGap(18, 18, 18)
                 .addComponent(SubmitAddcustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addGap(96, 96, 96))
         );
+
+        AdAddress_id.setText(jSlider1.getValue()+"");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdFirst_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdFirst_nameActionPerformed
-        
+
     }//GEN-LAST:event_AdFirst_nameActionPerformed
 
     private void SubmitAddcustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitAddcustomerActionPerformed
-       
-        int desejo = JOptionPane.showConfirmDialog(null , "tem certeza que deseja adiconar esse cliente ao Sakila?");
-        
-     if (desejo == JOptionPane.YES_OPTION) {
-        try {
-            
-        int adStoreID = jComboBox1.getSelectedIndex()+1;
-        String adFirst_name = AdFirst_name.getText();
-        String adLast_name = AdLast_name.getText();
-        String adEmail = AdEmail.getText();
-        int adaddress_id = Integer.parseInt(AdAddress_id.getText());
-        
-            Customer c = new Customer(adStoreID, adFirst_name, adLast_name, adEmail, adaddress_id, 1);
-            
-            dao.insertCustomer(c);
-        
-    }   catch (SQLException ex) {
-            Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        setVisible(false);
-        try {
-            new SakilabdUI().setVisible(true);
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        }     
+
+        if (AdFirst_name.getText().equals("") || AdLast_name.getText().equals("") || AdEmail.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            if (jCheckBox1.isSelected() && jCheckBox3.isSelected()) {
+
+                int desejo = JOptionPane.showConfirmDialog(null, "tem certeza que deseja adiconar esse cliente ao Sakila?");
+
+                if (desejo == JOptionPane.YES_OPTION) {
+                    try {
+
+                        int adStoreID = jComboBox1.getSelectedIndex() + 1;
+                        String adFirst_name = AdFirst_name.getText();
+                        String adLast_name = AdLast_name.getText();
+                        String adEmail = AdEmail.getText();
+                        int adaddress_id = jSlider1.getValue();
+
+                        if (adaddress_id == 0) {
+                            JOptionPane.showMessageDialog(null, "O cliente não pode ser posto com ID 0, por favor selecione um ID válido!", "Erro", JOptionPane.ERROR_MESSAGE);
+                        } 
+         
+                        else {
+                            adaddress_id = jSlider1.getValue();
+
+                            Customer c = new Customer(adStoreID, adFirst_name, adLast_name, adEmail, adaddress_id, 1);
+
+                            dao.insertCustomer(c);
+
+                            setVisible(false);
+
+                            try {
+                                new SakilabdUI().setVisible(true);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+
     }//GEN-LAST:event_SubmitAddcustomerActionPerformed
     else {
-       JOptionPane.showConfirmDialog(null, "Cancelado","Operação descartada!",JOptionPane.WARNING_MESSAGE);
-       
-       setVisible(false);
-        try {
-            new SakilabdUI().setVisible(true);
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        }            
-        } 
-    
+                    JOptionPane.showConfirmDialog(null, "Cancelado", "Operação descartada!", JOptionPane.WARNING_MESSAGE);
+
+                    setVisible(false);
+                    try {
+                        new SakilabdUI().setVisible(true);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AddCustomer.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Você precisa concordar com termos e condições e permitir o processamento de dados pessoais para se cadastrar no Sakila.", "Falha na autenticação", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
-   
-        
+
+
     private void AdAddress_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdAddress_idActionPerformed
-        
+
     }//GEN-LAST:event_AdAddress_idActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-   
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        AdAddress_id.setText(jSlider1.getValue() + "");
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void AdLast_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdLast_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdLast_nameActionPerformed
+
+    private void AdAddress_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AdAddress_idKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jSlider1.setValue(Integer.parseInt(AdAddress_id.getText()));
+        }
+    }//GEN-LAST:event_AdAddress_idKeyReleased
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -293,6 +383,9 @@ public class AddCustomer extends javax.swing.JFrame {
     private javax.swing.JTextField AdFirst_name;
     private javax.swing.JTextField AdLast_name;
     private javax.swing.JButton SubmitAddcustomer;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -304,5 +397,6 @@ public class AddCustomer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
 }
