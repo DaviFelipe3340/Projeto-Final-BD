@@ -71,21 +71,9 @@ public class AddCustomer extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(221, 221, 221));
         jLabel3.setText("First_name:");
 
-        AdFirst_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdFirst_nameActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(221, 221, 221));
         jLabel4.setText("Last_name:");
-
-        AdLast_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdLast_nameActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(221, 221, 221));
@@ -95,11 +83,6 @@ public class AddCustomer extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(221, 221, 221));
         jLabel6.setText("Address_id:");
 
-        AdAddress_id.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdAddress_idActionPerformed(evt);
-            }
-        });
         AdAddress_id.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 AdAddress_idKeyReleased(evt);
@@ -117,11 +100,6 @@ public class AddCustomer extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Store 1", "Store 2" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jSlider1.setBackground(new java.awt.Color(18, 19, 49));
         jSlider1.setForeground(new java.awt.Color(221, 221, 221));
@@ -141,29 +119,14 @@ public class AddCustomer extends javax.swing.JFrame {
         jCheckBox1.setBackground(new java.awt.Color(18, 19, 49));
         jCheckBox1.setForeground(new java.awt.Color(221, 221, 221));
         jCheckBox1.setText("Aceito os Termos e Condições...");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
 
         jCheckBox2.setBackground(new java.awt.Color(18, 19, 49));
         jCheckBox2.setForeground(new java.awt.Color(221, 221, 221));
         jCheckBox2.setText("Desejo Receber Notificações sobre atualizações do Sakila");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
 
         jCheckBox3.setBackground(new java.awt.Color(18, 19, 49));
         jCheckBox3.setForeground(new java.awt.Color(221, 221, 221));
         jCheckBox3.setText("Permissão para Processamento de Dados Pessoais");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projetofinalbd/Assets/wired-outline-21-avatar-hover-jumping.gif"))); // NOI18N
 
@@ -274,16 +237,15 @@ public class AddCustomer extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AdFirst_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdFirst_nameActionPerformed
-
-    }//GEN-LAST:event_AdFirst_nameActionPerformed
-
+    
+    
+    
     private void SubmitAddcustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitAddcustomerActionPerformed
 
         if (AdFirst_name.getText().equals("") || AdLast_name.getText().equals("") || AdEmail.getText().equals("")) {
@@ -345,39 +307,15 @@ public class AddCustomer extends javax.swing.JFrame {
     }
 
 
-    private void AdAddress_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdAddress_idActionPerformed
-
-    }//GEN-LAST:event_AdAddress_idActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
         AdAddress_id.setText(jSlider1.getValue() + "");
     }//GEN-LAST:event_jSlider1StateChanged
-
-    private void AdLast_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdLast_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdLast_nameActionPerformed
 
     private void AdAddress_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AdAddress_idKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jSlider1.setValue(Integer.parseInt(AdAddress_id.getText()));
         }
     }//GEN-LAST:event_AdAddress_idKeyReleased
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
